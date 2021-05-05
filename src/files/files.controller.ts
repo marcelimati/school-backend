@@ -188,7 +188,7 @@ export class FilesController {
         const file = await this.filesService.downloadFile(fileId);
         if (file)
         {
-            if (file.userid == req.user._id || file.classroom == '5ffb4d84e2f6c6c075418d79')
+            if (file.userid == req.user._id)
             {
                 return file;
             }
