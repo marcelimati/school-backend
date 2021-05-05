@@ -8,7 +8,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: '7dTSPimW1C34o6vEZIors2sga',
+      secretOrKey: process.env.secret,
     });
   }
 
