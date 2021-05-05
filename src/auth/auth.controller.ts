@@ -27,21 +27,9 @@ export class AuthController {
     return this.authService.login(loginDto);
   }
 
-  // @Roles('ADMIN')
   @UseGuards(JwtAuthGuard, RoleGuard)
   @Get('profile')
   async profile(@Request() req): Promise<Profile> {
-    //console.log(req.user);
     return this.authService.getProfile(req.user._id)
-    
-    //return req.user;
-    //await this.authService.logout(req.user.id);
   }
-  
-  // @UseGuards(JwtAuthGuard, RoleGuard)
-  // @Get('test')
-  // async test(@Request() req): Promise<void> {
-  //   console.log(req);
-  // }
-
 }
