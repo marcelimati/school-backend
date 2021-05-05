@@ -6,13 +6,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 async function bootstrap() {
-  const httpsOptions = {
-    key: fs.readFileSync('/etc/letsencrypt/live/kawaiineko.pl/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/kawaiineko.pl/fullchain.pem'),
-  };
-  const app = await NestFactory.create(AppModule, {
-    httpsOptions,
-  }); 
+  const app = await NestFactory.create(AppModule); 
 
   app.enableCors();
 
